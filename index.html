@@ -1,289 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Overview</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
-    <style>
-        :root {
-            --primary-color: #c3ff65;
-            --dark-bg: #1a1a1a;
-            --card-bg: #242424;
-            --text-color: #ffffff;
-        }
+import React from 'react';
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        }
-
-        body {
-            background: var(--dark-bg);
-            color: var(--text-color);
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .dashboard {
-            display: grid;
-            grid-template-columns: 80px 1fr;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .sidebar {
-            background: var(--card-bg);
-            padding: 1rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2rem;
-            height: 100%;
-            overflow-y: auto;
-        }
-
-        .main-content {
-            padding: 2rem;
-            height: 100vh;
-            overflow-y: auto;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            position: sticky;
-            top: 0;
-            background: var(--dark-bg);
-            z-index: 10;
-            padding-bottom: 1rem;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            height: fit-content;
-        }
-
-        .credit-card {
-            background: var(--primary-color);
-            color: black;
-            border-radius: 1rem;
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
-            height: fit-content;
-        }
-
-        .credit-card h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .chart-container {
-            height: 300px;
-        }
-
-        .agents-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 2rem;
-        }
-
-        .agents-table th,
-        .agents-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid #333;
-        }
-
-        .status-badge {
-            background: #1a8917;
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 1rem;
-            font-size: 0.875rem;
-        }
-
-        /* Chart containers with fixed heights */
-        #revenueChart,
-        #categoriesChart,
-        #salesChart {
-            height: 250px !important;
-        }
-
-        /* Make cards containing charts have a fixed height */
-        .card:has(canvas) {
-            height: 300px;
-        }
-    </style>
-</head>
-<body>
-    <div class="dashboard">
-        <aside class="sidebar">
-            <div class="logo">
-                <svg viewBox="0 0 24 24" width="24" height="24">
-                    <rect width="24" height="24" fill="var(--primary-color)" rx="6"/>
-                </svg>
-            </div>
-            <nav>
-                <!-- Add sidebar icons here -->
-            </nav>
-        </aside>
-
-        <main class="main-content">
-            <header class="header">
-                <h1>Dashboard Overview</h1>
-                <div class="header-actions">
-                    <button>Export</button>
-                </div>
-            </header>
-
-            <div class="grid-container">
-                <div class="credit-card">
-                    <h2>$920.34</h2>
-                    <p>Credit</p>
-                    <div class="card-details">
-                        <span>**** **** **** 5252</span>
-                        <span>EXP Date: 02/30</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h3>Revenue</h3>
-                    <canvas id="revenueChart"></canvas>
-                </div>
-
-                <div class="card">
-                    <h3>Top Categories</h3>
-                    <canvas id="categoriesChart"></canvas>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Sales Report</h3>
-                <canvas id="salesChart"></canvas>
-            </div>
-
-            <div class="card">
-                <h3>Top Agents</h3>
-                <table class="agents-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Date of sale</th>
-                            <th>Total cost</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Sofa Express</td>
-                            <td>26 Sep 2024</td>
-                            <td>$34,860</td>
-                            <td><span class="status-badge">Online</span></td>
-                            <td>
-                                <button>•••</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </main>
+const LoginPage = () => {
+  return (
+    <div className="min-h-screen bg-gradient-to-r from-blue-50 to-blue-100 flex items-center justify-center p-4">
+      {/* Background circles */}
+      <div className="absolute right-0 top-0 h-full w-1/2 bg-blue-500 rounded-l-full opacity-20" />
+      <div className="absolute right-0 top-0 h-full w-1/3 bg-blue-600 rounded-l-full opacity-20" />
+      
+      {/* Login card */}
+      <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 w-full max-w-md relative z-10 shadow-lg">
+        <h2 className="text-2xl font-bold text-center mb-8 text-gray-800">Login Now</h2>
+        
+        <form className="space-y-4">
+          <div>
+            <input
+              type="text"
+              placeholder="Email or Username"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          
+          <div>
+            <input
+              type="password"
+              placeholder="Password"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-200"
+          >
+            LOGIN
+          </button>
+        </form>
+        
+        <div className="mt-6 text-center text-gray-600">Or login with</div>
+        
+        <div className="mt-4 flex gap-4 justify-center">
+          <button className="flex items-center gap-2 px-6 py-2 border rounded-lg hover:bg-gray-50 transition duration-200">
+            <img src="/api/placeholder/20/20" alt="Facebook" className="w-5 h-5" />
+            Facebook
+          </button>
+          <button className="flex items-center gap-2 px-6 py-2 border rounded-lg hover:bg-gray-50 transition duration-200">
+            <img src="/api/placeholder/20/20" alt="Google" className="w-5 h-5" />
+            Google
+          </button>
+        </div>
+        
+        <div className="mt-6 text-center text-gray-600">
+          Not a member?{' '}
+          <a href="#" className="text-blue-600 hover:underline">
+            Signup now
+          </a>
+        </div>
+      </div>
     </div>
+  );
+};
 
-    <script>
-        // Initialize Charts
-        function initCharts() {
-            // Revenue Donut Chart
-            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
-            new Chart(revenueCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Invest', 'Of Prom', 'Tokens'],
-                    datasets: [{
-                        data: [2500, 2000, 2050],
-                        backgroundColor: ['#ff6b6b', '#c3ff65', '#4dabf7']
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false
-                }
-            });
-
-            // Categories Bubble Chart
-            const categoriesCtx = document.getElementById('categoriesChart').getContext('2d');
-            new Chart(categoriesCtx, {
-                type: 'bubble',
-                data: {
-                    datasets: [{
-                        label: 'Categories',
-                        data: [
-                            { x: 1, y: 1, r: 40 },
-                            { x: 2, y: 2, r: 20 },
-                            { x: 3, y: 3, r: 30 }
-                        ],
-                        backgroundColor: ['#c3ff65', '#4dabf7', '#ff6b6b']
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false
-                }
-            });
-
-            // Sales Bar Chart
-            const salesCtx = document.getElementById('salesChart').getContext('2d');
-            new Chart(salesCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                    datasets: [{
-                        label: 'Sales',
-                        data: [3000, 2800, 3200, 5324, 3100, 2900, 2700],
-                        backgroundColor: (context) => {
-                            return context.dataIndex === 3 ? '#c3ff65' : '#444';
-                        }
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            grid: {
-                                color: '#333'
-                            }
-                        },
-                        x: {
-                            grid: {
-                                display: false
-                            }
-                        }
-                    }
-                }
-            });
-        }
-
-        // Initialize everything when the page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            initCharts();
-        });
-    </script>
-</body>
-</html>
+export default LoginPage;
