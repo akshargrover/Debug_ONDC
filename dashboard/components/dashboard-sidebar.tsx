@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation"
 const sidebarItems = [
   { icon: LayoutGrid, label: "Dashboard", href: "/dashboard" },
   { icon: CreditCard, label: "Catalogue", href: "/catalogue" },
-  { icon: Database, label: "Database", href: "/database" },
+  { icon: Database, label: "Add Item", href: "/add-item" },
   { icon: FileText, label: "Reports", href: "/reports" },
   { icon: Settings, label: "Settings", href: "/settings" },
 ]

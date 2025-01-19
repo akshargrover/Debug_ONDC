@@ -10,7 +10,7 @@ import { CalendarDays } from 'lucide-react'
 
 export default function DashboardPage() {
   return (
-    <div className="flex min-h-screen" style={{ backgroundColor: 'rgba(220, 232, 255, 1)' }}>
+    <div className="flex min-h-screen">
       <DashboardSidebar />
       <div className="flex-1 pl-24">
         <div className="p-8">
