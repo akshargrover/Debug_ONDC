@@ -1,9 +1,15 @@
+"use client"
+
 import { DashboardSidebar } from "@/components/dashboard-sidebar"
 import { AddItemForm } from "@/components/add-item/add-item-form"
 import { ItemsTable } from "@/components/add-item/items-table"
-import { BackgroundWrapper } from "@/components/shared/background-wrapper"
+import { Button } from "@/components/ui/button"
+import { ArrowLeft } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 export default function AddItemPage() {
+  const router = useRouter()
+
   return (
     <div className="flex min-h-screen">
       <DashboardSidebar />
@@ -17,7 +23,17 @@ export default function AddItemPage() {
             <span className="text-foreground">ADD ITEM</span>
           </div>
           
-          <h1 className="text-2xl font-bold mb-8">ADD ITEM</h1>
+          <div className="flex justify-between items-center mb-8">
+            <h1 className="text-2xl font-bold">ADD ITEM</h1>
+            <Button 
+              variant="ghost" 
+              onClick={() => router.back()}
+              className="text-blue-600"
+            >
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back to Catalogue
+            </Button>
+          </div>
 
           <div className="grid grid-cols-[1fr_1.2fr] gap-4">
             <AddItemForm />

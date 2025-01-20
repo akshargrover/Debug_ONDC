@@ -1,0 +1,42 @@
+.gradientBorder {
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+.gradientBorder::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 1.5rem;
+  padding: 1px;
+  background: linear-gradient(148.91deg, #96B8FA -56.52%, rgba(95, 139, 223, 0.64) -25.12%, rgba(48, 100, 199, 0.66) 1.95%, #003CAF 29.35%);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+.inventoryText {
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+}
+
+.inventoryText::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(93.6deg, #0D43AA 15.96%, #0D43AA 41.31%, rgba(13, 67, 170, 0.76) 66.12%, #0D43AA 88.6%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
